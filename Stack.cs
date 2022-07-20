@@ -1,4 +1,4 @@
-﻿namespace Collections.Generic;
+﻿namespace   MyCollections.Generic;
 public class Stack<T>
 {
     private Node? Head { get; set; }
@@ -10,6 +10,13 @@ public class Stack<T>
             Console.WriteLine($"| {curr.Value} |");
             curr = curr.Next;
         }
+    }
+    public void Push(T element)
+    {
+        if (Head == null)
+            Head = new Node(element);
+        else
+            Head =new Node(Head, element);
     }
     private class Node
     {
