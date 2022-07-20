@@ -1,11 +1,21 @@
 ﻿namespace Collections.Generic;
 public class Stack<T>
 {
-    class Node
+    private Node? Head { get; set; }
+    public void Print()
     {
-        Node? Next { get; set; } 
-        T Value { get; set; }
-        Node(T value) => Value = value;
-        Node(Node? next, T value) : this(value) => Next = next;
+        Node? curr = Head;
+        while(curr != null)
+        {
+            Console.WriteLine($"| {curr.Value} |");
+            curr = curr.Next;
+        }
+    }
+    private class Node
+    {
+        internal Node? Next { get; set; }
+        internal T Value { get; set; }
+        internal Node(T value) => Value = value;
+        internal Node(Node? next, T value) : this(value) => Next = next;
     }
 }
