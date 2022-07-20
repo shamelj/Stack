@@ -27,6 +27,11 @@ public class Stack<T>
             throw new InvalidOperationException("Stack is Empty");
         return Head.Value;
     }
+    public void Clear()
+    {
+        Head = null;
+        Size = 0;
+    }
     private class Node
     {
         internal Node? Next { get; set; }
