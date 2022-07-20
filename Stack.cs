@@ -1,5 +1,5 @@
 ﻿namespace MyCollections.Generic;
-public class Stack<T>
+public class Stack<T> where T : notnull
 {
     private Node? Head { get; set; }
     public int Size { get; private set; } = 0;
@@ -26,6 +26,14 @@ public class Stack<T>
         if (IsEmpty())
             throw new InvalidOperationException("Stack is Empty");
         return Head.Value;
+    }
+    public T Pop()
+    {
+        if (IsEmpty())
+            throw new InvalidOperationException("Stack is Empty");
+        var top = Head.Value;
+        Head = Head.Next;
+        return top;
     }
     public void Clear()
     {
